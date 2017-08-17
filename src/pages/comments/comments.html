@@ -1,0 +1,69 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title class="header-style"> <ion-icon range-right name="ios-chatbubbles"></ion-icon>  comments</ion-title>
+    <button ion-button color="dark" clear (click)="dismiss()"  class="button-style"><ion-icon name="md-close"></ion-icon></button>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>  
+    <ion-row>
+      <ion-col col-12>
+        <ion-item>
+          <ion-label>User:</ion-label>
+          <ion-label>{{comment.user.username}}</ion-label>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col col-12>
+        <ion-item>
+          <ion-label>Title: </ion-label>
+          <ion-input placeholder="Comment Title" [(ngModel)]= "comment.title"></ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col col-12>
+        <ion-item>
+          <ion-label>Comment: </ion-label>
+          <ion-input placeholder="Type your comment!" [(ngModel)]= "comment.Cooment"></ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col col-12>
+        <ion-item>
+          <ion-label>Add Tag: </ion-label>
+          <ion-select [(ngModel)]="tags" multiple="true">
+            <ion-option value="ios">IOS</ion-option>
+            <ion-option value="Android">Android</ion-option>
+            <ion-option value="Javascript">Javascript</ion-option>
+            <ion-option value="Linux">Linux</ion-option>
+            <ion-option value="Cordova">Cordova</ion-option>
+          </ion-select>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col col-12>
+        <ion-item>
+          <ion-label>
+          Tags List
+        </ion-label>
+        </ion-item>
+        <ion-list>
+          <button ion-item *ngFor="let item of tags">
+            {{ item }}
+          </button>  
+        </ion-list>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col col-12>
+        <button ion-button color="secondary" full (click)="save(tags)">Save</button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

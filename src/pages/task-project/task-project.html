@@ -1,0 +1,72 @@
+<ion-header>
+  <ion-navbar>
+    <ion-buttons start>
+            <button ion-button class="button-style" (click)="cancel()"><ion-icon name="md-arrow-back"></ion-icon></button>
+    </ion-buttons>
+    <ion-title class="header-style"><ion-icon range-right name="ios-hammer"></ion-icon>  Task</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-grid>
+    <ion-row>
+      <ion-col col-12>
+        <ion-item>
+          <ion-label floating>Number Comments on Task</ion-label>
+          <ion-input type="text" [(ngModel)]="task.name" ></ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col col-12>
+        <ion-item>
+          <ion-label> Status</ion-label>
+          <ion-toggle [(ngModel)]="task.status"></ion-toggle>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col col-12>
+        <ion-item>
+          <ion-label> Progress</ion-label>
+          <ion-range min="-200" max="200" [(ngModel)]="task.progress">
+            <ion-icon range-left small name="ios-hammer-outline"></ion-icon>
+            <ion-icon range-right name="ios-hammer"></ion-icon>
+          </ion-range>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col col-12>
+        <ion-item>
+          <ion-label>Initial Date:</ion-label>
+          <ion-datetime displayFormat="MM/DD/YYYY" [(ngModel)]="task.initDate"></ion-datetime>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col col-12>
+        <ion-item>
+          <ion-label>Final Date:</ion-label>
+          <ion-datetime displayFormat="MM/DD/YYYY" [(ngModel)]="task.endDate"></ion-datetime>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col col-12>
+          <ion-row>
+            <ion-col col-10> Comments</ion-col>
+            <ion-col col-2><button ion-button color="dark" clear (click)="openModal()" ><ion-icon name="md-add-circle"></ion-icon></button></ion-col>
+          </ion-row>
+          <ion-list>
+              <button ion-item *ngFor="let item of items">
+                {{item.title}}
+                <div class="item-note" item-right>
+                  {{item.note}}
+                </div>
+              </button>  
+          </ion-list>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
