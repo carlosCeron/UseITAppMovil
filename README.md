@@ -1,4 +1,3 @@
-This is a starter template for [Ionic](http://ionicframework.com/docs/) projects.
 
 ## UseItApp Proyect Movil Ionic
 
@@ -9,4 +8,6 @@ ionic serve
 #Inicio modo lab
 
 ionic serve --lab
+
+Carlos Ceron
 
